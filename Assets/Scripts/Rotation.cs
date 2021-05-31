@@ -44,6 +44,7 @@ public class Rotation : MonoBehaviour
         currentCameraRotation.x -= mouseY * _sensitivity; //if +, mouse look is reversed
         //_mainCamera.gameObject.transform.localEulerAngles = currentCameraRotation; 
         //Above works fine but we better use Quaternion. 
-        _mainCamera.gameObject.transform.localRotation = Quaternion.AngleAxis(currentCameraRotation.x, Vector3.right);
+        _mainCamera.gameObject.transform.localRotation = Quaternion.AngleAxis(
+            Mathf.Clamp(currentCameraRotation.x,0,28), Vector3.right);
     }
 }
